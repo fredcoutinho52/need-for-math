@@ -15,12 +15,13 @@ import android.os.AsyncTask;
 import java.io.IOException;
 import java.util.UUID;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity {
 
     Button buttonFundamental;
     Button buttonMedio;
     Button buttonSuperior;
 
+    String categoriaIntervalo;
     String address = null;
     private ProgressDialog progress;
     BluetoothAdapter myBluetooth = null;
@@ -42,22 +43,37 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonSuperior = findViewById(R.id.button_superior);
 
         // CHAMA A CLASSE DE CONEXÃO
-        new ConnectBT().execute();
+        //new ConnectBT().execute();
 
-    }
+        buttonFundamental.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ConfirmaActivity.class);
+                categoriaIntervalo = "1";
+                intent.putExtra("categoriaIntervalo", categoriaIntervalo);
+                startActivity(intent);
+            }
+        });
 
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.button_fundamental){
-            Intent intent = new Intent(this, ConfirmaActivity.class);
-            startActivity(intent);
-        } else if (v.getId() == R.id.button_medio){
-            Intent intent = new Intent(this, ConfirmaActivity.class);
-            startActivity(intent);
-        } else if (v.getId() == R.id.button_superior){
-            Intent intent = new Intent(this, ConfirmaActivity.class);
-            startActivity(intent);
-        }
+        buttonMedio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ConfirmaActivity.class);
+                categoriaIntervalo = "6";
+                intent.putExtra("categoriaIntervalo", categoriaIntervalo);
+                startActivity(intent);
+            }
+        });
+
+        buttonSuperior.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ConfirmaActivity.class);
+                categoriaIntervalo = "11";
+                intent.putExtra("categoriaIntervalo", categoriaIntervalo);
+                startActivity(intent);
+            }
+        });
     }
 
     private void msg(String s) {
@@ -65,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     // CLASSE PARA CONECTAR COM O MÓDULO BLUETOOTH
-    private class ConnectBT extends AsyncTask<Void, Void, Void> { // UI thread
+    /*private class ConnectBT extends AsyncTask<Void, Void, Void> { // UI thread
         private boolean ConnectSuccess = true; //if it's here, it's almost connected
 
         @Override
@@ -103,5 +119,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             progress.dismiss();
         }
-    }
+    }*/
 }

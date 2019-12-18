@@ -6,12 +6,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 import java.io.IOException;
 
 public class CalculoActivity extends AppCompatActivity {
 
     Button btnVerificar;
+    TextView txtView;
+    private Bundle extras;
+    String numReceived;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +23,13 @@ public class CalculoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_calculo);
 
         btnVerificar = findViewById(R.id.button_devices);
+        txtView = findViewById(R.id.textView);
+
+        extras = getIntent().getExtras();
+        if (extras != null){
+            numReceived = extras.getString("numSort");
+            this.txtView.setText(numReceived);
+        }
 
         // CRIA A VARIÁVEL QUE RECEBE A TAG IMAGEVIEW QUE EXIBIRÁ OS CÁLCULOS
         ImageView myImgView = findViewById(R.id.image_calculo);
@@ -26,16 +37,16 @@ public class CalculoActivity extends AppCompatActivity {
         // DEFINE QUAL IMAGEM SERÁ EXIBIDA ATRAVÉS DO SEU NOME
         myImgView.setImageResource(R.drawable.calculo);
 
-        btnVerificar.setOnClickListener(new View.OnClickListener() {
+        /*btnVerificar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 turnOnCar();
             }
-        });
+        });*/
     }
 
     // MÉTODO PARA LIGAR O CARRINHO
-    private void turnOnCar() {
+    /*private void turnOnCar() {
         if (btSocket!=null) {
             try {
                 // B É A MENSAGEM QUE O ARDUINO RECEBE PARA ATIVAR O CARRINHO
@@ -45,7 +56,7 @@ public class CalculoActivity extends AppCompatActivity {
                 msg("Error");
             }
         }
-    }
+    }*/
 
     private void msg(String s) {
         Toast.makeText(getApplicationContext(),s,Toast.LENGTH_LONG).show();
