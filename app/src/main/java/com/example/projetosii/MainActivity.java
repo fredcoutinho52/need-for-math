@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.bluetooth.BluetoothSocket;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         buttonSuperior = findViewById(R.id.button_superior);
 
         // CHAMA A CLASSE DE CONEXÃO
-        //new ConnectBT().execute();
+        new ConnectBT().execute();
 
         buttonFundamental.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // CLASSE PARA CONECTAR COM O MÓDULO BLUETOOTH
-    /*private class ConnectBT extends AsyncTask<Void, Void, Void> { // UI thread
+    public class ConnectBT extends AsyncTask<Void, Void, Void> { // UI thread
         private boolean ConnectSuccess = true; //if it's here, it's almost connected
 
         @Override
@@ -119,5 +120,5 @@ public class MainActivity extends AppCompatActivity {
             }
             progress.dismiss();
         }
-    }*/
+    }
 }

@@ -18,9 +18,6 @@ public class ConfirmaActivity extends AppCompatActivity {
     String numSort;
     Random random = new Random();
 
-    public ViewHolder mViewHolder = new ViewHolder();
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,13 +25,12 @@ public class ConfirmaActivity extends AppCompatActivity {
 
         buttonConfirm = findViewById(R.id.button_confirm);
 
-        this.mViewHolder.teste = findViewById(R.id.textView);
-
         extras = getIntent().getExtras();
         if (extras != null){
             indiceCalculo = extras.getString("categoriaIntervalo");
         }
 
+        // VERIFICA O QUE FOI RECEBIDO E SORTEIA UM NÚMERO NO INTERVALO DESIGNADO
         if (indiceCalculo.equals("1")){
             numSort = Integer.toString(1 + random.nextInt(5));
         } else if (indiceCalculo.equals("6")){
@@ -51,9 +47,5 @@ public class ConfirmaActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-    }
-
-    public static class ViewHolder {
-        TextView teste;
     }
 }

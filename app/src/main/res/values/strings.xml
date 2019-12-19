@@ -1,6 +1,19 @@
 <resources>
-    <string name="app_name">Corrida Educativa</string>
-    <!-- IMAGENS DOS CÁLCULOS -->
-    <string name="img1">@drawable/calculo</string>
-    <!-- //IMAGENS DOS CÁLCULOS -->
+    <string name="app_name">Need For Math</string>
+
+    <string name="q1">10</string>
+    <string name="q2">75</string>
+    <string name="q3">3</string>
+    <string name="q4">36</string>
+    <string name="q5">8</string>
+    <string name="q6">3</string>
+    <string name="q7">1.5</string>
+    <string name="q8">27</string>
+    <string name="q9">120</string>
+    <string name="q10">9</string>
+    <string name="q11">4</string>
+    <string name="q12">9</string>
+    <string name="q13">14</string>
+    <string name="q14">15</string>
+    <string name="q15">0</string>
 </resources>

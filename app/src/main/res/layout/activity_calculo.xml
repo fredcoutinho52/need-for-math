@@ -12,20 +12,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="50dp"
         android:gravity="center"
         android:text="Resolva os cálculos"
         android:textColor="#ffffff"
         android:textSize="30sp" />
 
-    <!-- AQUI VAI AS IMAGENS DOS CÁLCULOS -->
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:layout_gravity="center"
+        android:textSize="50sp"/>
+
     <ImageView
         android:id="@+id/image_calculo"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="80dp"
+        android:layout_marginTop="30dp"
         android:layout_gravity="center" />
 
     <EditText
+        android:id="@+id/respBox"
         android:layout_width="180dp"
         android:layout_height="60dp"
         android:layout_gravity="center"
@@ -46,15 +55,5 @@
         android:text="Verificar"
         android:textColor="#ffffff"
         android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="teste"
-        android:textSize="40sp"
-        android:layout_marginTop="20dp"
-        android:textColor="#ffffff" />
 
 </LinearLayout>
